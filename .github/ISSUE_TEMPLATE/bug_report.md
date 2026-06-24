@@ -1,33 +1,65 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: "[BUG]"
+name: Bug Report
+about: Report a defect affecting a lottery platform or internal tool
+title: "[BUG] "
 labels: bug
 assignees: ''
 
 ---
 
-**Affected Lottery/Deployment**
-Please include the name or code used to log into the affected lottery where applicable. For client specific issues within a shared platform please also include the name of the affected client.
+**Affected Lottery / Client**
+Lottery code or name used to log in. For issues on a shared platform, also specify the affected client(s).
 
-**Which area(s) of the system are involved**
-e.g. Communication, Payment, Reporting, Configuration/Admin Tools
+**Environment**
+- [ ] Production
+- [ ] Staging / UAT
+- [ ] Development
 
-**Describe the bug**
+**System Area**
+Which area(s) are involved? (tick all that apply)
+- [ ] Admin / Back Office
+- [ ] Payments (DD, card, recurring)
+- [ ] Draw Engine / Results
+- [ ] Communications (email, SMS, push)
+- [ ] Reporting / Exports
+- [ ] Integrations (payment gateway, third-party API)
+- [ ] Other: <!-- specify -->
+
+**Describe the Bug**
 A clear and concise description of what the bug is.
 
-**Steps To Reproduce**
-Steps to reproduce the behavior:
+**Steps to Reproduce**
 1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+2. Click on '...'
+3. Observe '...'
 
-**Expected behaviour**
-A clear and concise description of what you expected to happen.
+**Expected Behaviour**
+What should have happened instead.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Actual Behaviour**
+What actually happened. Include error messages or codes if available.
 
-**Additional context e.g. Asana or Smartsheet link **
-Add any other context about the problem here.
+**Evidence**
+Attach screenshots, screen recordings, or relevant log snippets.
+
+**Impact & Urgency**
+- Number of affected players/clients (if known):
+- Is there a workaround? Yes / No
+- Financial impact? Yes / No
+
+**Risks**
+- Could a fix introduce regressions elsewhere? Describe any known dependencies.
+- Are there upcoming draws, payment runs, or deadlines that increase risk?
+- Data integrity concerns (e.g. corrupted records, duplicate payments)?
+
+**Rollback Procedure**
+If a deployed fix causes further issues, what is the rollback plan?
+- [ ] Revert the release/commit (no data migration involved)
+- [ ] Feature flag — disable the change without redeployment
+- [ ] Database rollback required (describe steps)
+- [ ] Manual data correction needed
+- [ ] No rollback possible — must fix forward
+- Notes:
+
+**Additional Context**
+Link to Asana task, Smartsheet row, or support ticket if applicable.
