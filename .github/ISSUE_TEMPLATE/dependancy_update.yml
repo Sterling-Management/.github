@@ -36,6 +36,7 @@ body:
     id: update_type
     attributes:
       label: Update Type
+      multiple: true
       options:
         - Patch update
         - Minor update
