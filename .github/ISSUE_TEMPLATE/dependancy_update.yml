@@ -98,6 +98,7 @@ body:
     id: deployment_notes
     attributes:
       label: Deployment / Rollout Notes
+      multiple: true
       options:
         - Safe for normal deployment
         - Requires staged rollout
