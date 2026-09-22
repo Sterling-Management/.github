@@ -78,16 +78,6 @@ body:
         - label: Linting/type checks passing
 
   - type: textarea
-    id: areas_tested
-    attributes:
-      label: Areas Tested
-      description: Describe the areas that were tested
-      placeholder: |
-        API
-        User authentication
-        Background jobs
-
-  - type: textarea
     id: security_notes
     attributes:
       label: Security Notes
@@ -136,3 +126,31 @@ body:
       label: Reviewer Notes
       description: Anything reviewers should focus on
       placeholder: Specific review guidance
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Testing
+        Check each area only after it has been tested and passed.
+
+  - type: checkboxes
+    id: areas_tested
+    attributes:
+      label: Areas tested and passed
+      description: Check an area only after this change has been tested there and passed.
+      options:
+        - label: Player Portal / Public Website
+        - label: Admin / Back Office
+        - label: Payments (DD, card, recurring)
+        - label: Draw Engine / Results
+        - label: Communications (email, SMS, push)
+        - label: Reporting / Exports
+        - label: Integrations (payment gateway, third-party API)
+
+  - type: textarea
+    id: other_areas_tested
+    attributes:
+      label: Other areas tested
+      description: List any areas you have tested and passed that are not in the list above.
+    validations:
+      required: false

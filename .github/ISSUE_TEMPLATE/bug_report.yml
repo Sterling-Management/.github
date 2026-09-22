@@ -1,0 +1,164 @@
+name: Bug Report
+description: Report a defect affecting a lottery platform or internal tool
+title: "[BUG] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: affected_lottery
+    attributes:
+      label: Affected Lottery / Client
+      description: Lottery code or name used to log in. For issues on a shared platform, also specify the affected client(s).
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - label: Production
+        - label: Staging / UAT
+        - label: Development
+
+  - type: checkboxes
+    id: system_area
+    attributes:
+      label: System Area
+      description: Which area(s) are involved? Tick all that apply.
+      options:
+        - label: Admin / Back Office
+        - label: Payments (DD, card, recurring)
+        - label: Draw Engine / Results
+        - label: Communications (email, SMS, push)
+        - label: Reporting / Exports
+        - label: Integrations (payment gateway, third-party API)
+        - label: Other
+
+  - type: textarea
+    id: system_area_other
+    attributes:
+      label: Other system area
+      description: If you selected Other, specify the area.
+    validations:
+      required: false
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Describe the Bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Observe '...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behaviour
+    attributes:
+      label: Expected Behaviour
+      description: What should have happened instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behaviour
+    attributes:
+      label: Actual Behaviour
+      description: What actually happened. Include error messages or codes if available.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Attach screenshots, screen recordings, or relevant log snippets.
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact & Urgency
+      value: |
+        - Number of affected players/clients (if known):
+        - Is there a workaround? Yes / No
+        - Financial impact? Yes / No
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks
+      value: |
+        - Could a fix introduce regressions elsewhere? Describe any known dependencies.
+        - Are there upcoming draws, payment runs, or deadlines that increase risk?
+        - Data integrity concerns (e.g. corrupted records, duplicate payments)?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: rollback
+    attributes:
+      label: Rollback Procedure
+      description: If a deployed fix causes further issues, what is the rollback plan?
+      options:
+        - label: Revert the release/commit (no data migration involved)
+        - label: Feature flag — disable the change without redeployment
+        - label: Database rollback required (describe steps)
+        - label: Manual data correction needed
+        - label: No rollback possible — must fix forward
+
+  - type: textarea
+    id: rollback_notes
+    attributes:
+      label: Rollback notes
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Link to Asana task, Smartsheet row, or support ticket if applicable.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Testing
+        Check each area only after it has been tested and passed.
+
+  - type: checkboxes
+    id: areas_tested
+    attributes:
+      label: Areas tested and passed
+      description: Check an area only after this change has been tested there and passed.
+      options:
+        - label: Player Portal / Public Website
+        - label: Admin / Back Office
+        - label: Payments (DD, card, recurring)
+        - label: Draw Engine / Results
+        - label: Communications (email, SMS, push)
+        - label: Reporting / Exports
+        - label: Integrations (payment gateway, third-party API)
+
+  - type: textarea
+    id: other_areas_tested
+    attributes:
+      label: Other areas tested
+      description: List any areas you have tested and passed that are not in the list above.
+    validations:
+      required: false
