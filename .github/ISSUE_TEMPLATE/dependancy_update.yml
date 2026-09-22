@@ -1,0 +1,138 @@
+name: Dependency Update
+description: Record or request a dependency update
+title: "[Dependency Update]: "
+labels:
+  - dependencies
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 📦 Dependency Update
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the dependency updates included in this change
+      placeholder: Brief description of the update
+    validations:
+      required: true
+
+  - type: textarea
+    id: updated_dependencies
+    attributes:
+      label: Updated Dependencies
+      description: List the updated packages and versions
+      value: |
+        | Package | From | To | Reason |
+        |---|---|---|---|
+        | package-name | old-version | new-version | reason |
+      render: markdown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: update_type
+    attributes:
+      label: Update Type
+      multiple: true
+      options:
+        - Patch update
+        - Minor update
+        - Major update
+        - Security update
+        - Tooling/build update
+    validations:
+      required: true
+
+  - type: dropdown
+    id: breaking_changes
+    attributes:
+      label: Breaking Changes
+      options:
+        - No breaking changes expected
+        - Breaking changes possible
+        - Breaking changes confirmed
+    validations:
+      required: true
+
+  - type: textarea
+    id: breaking_change_details
+    attributes:
+      label: Breaking Change Details
+      description: Describe known breaking changes or migration requirements
+      placeholder: Details of breaking changes
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: validation_performed
+    attributes:
+      label: Validation Performed
+      options:
+        - label: Application builds successfully
+        - label: Unit tests passing
+        - label: Integration tests passing
+        - label: Manual smoke testing completed
+        - label: Linting/type checks passing
+
+  - type: textarea
+    id: areas_tested
+    attributes:
+      label: Areas Tested
+      description: Describe the areas that were tested
+      placeholder: |
+        API
+        User authentication
+        Background jobs
+
+  - type: textarea
+    id: security_notes
+    attributes:
+      label: Security Notes
+      description: Include CVEs, advisories, or security rationale if applicable
+      placeholder: Security information
+
+  - type: dropdown
+    id: deployment_notes
+    attributes:
+      label: Deployment / Rollout Notes
+      multiple: true
+      options:
+        - Safe for normal deployment
+        - Requires staged rollout
+        - Requires additional monitoring
+        - Requires configuration updates
+    validations:
+      required: true
+
+  - type: textarea
+    id: monitoring_focus
+    attributes:
+      label: Monitoring Focus
+      description: What should be monitored after deployment?
+      placeholder: Key metrics, services or logs to monitor
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / Concerns
+      description: Potential compatibility or runtime concerns
+      placeholder: Risks and concerns
+
+  - type: textarea
+    id: rollback_process
+    attributes:
+      label: Rollback Process
+      description: Details of how the change can be reversed if unsuccessful
+      placeholder: Describe rollback steps
+    validations:
+      required: true
+
+  - type: textarea
+    id: reviewer_notes
+    attributes:
+      label: Reviewer Notes
+      description: Anything reviewers should focus on
+      placeholder: Specific review guidance
