@@ -1,0 +1,169 @@
+name: Feature Request
+description: Suggest a new feature or improvement to the platform
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: input
+    id: requested_by
+    attributes:
+      label: Requested By
+      description: Internal team, client name, or both.
+      placeholder: Internal team / Client name / Both
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: system_area
+    attributes:
+      label: System Area
+      description: Which area(s) are involved?
+      options:
+        - label: Player Portal / Public Website
+        - label: Admin / Back Office
+        - label: Payments (DD, card, recurring)
+        - label: Draw Engine / Results
+        - label: Communications (email, SMS, push)
+        - label: Reporting / Exports
+        - label: Integrations (payment gateway, third-party API)
+        - label: Other
+
+  - type: textarea
+    id: system_area_other
+    attributes:
+      label: Other system area
+      description: If you selected Other, specify the area.
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Problem Statement
+      description: What problem does this solve or what opportunity does it address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the desired behaviour clearly.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative approaches or workarounds evaluated.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: behaviour_change
+    attributes:
+      label: Behaviour Change
+      options:
+        - New functionality (no existing behaviour affected)
+        - Replaces existing behaviour (describe what changes)
+        - Optional addition / toggle (client can opt in/out)
+    validations:
+      required: true
+
+  - type: textarea
+    id: behaviour_change_details
+    attributes:
+      label: Behaviour change details
+      description: If this replaces existing behaviour, describe what changes.
+    validations:
+      required: false
+
+  - type: textarea
+    id: client_impact
+    attributes:
+      label: Client Impact
+      value: |
+        - Which clients would benefit? (e.g. all, specific client, new clients only)
+        - Estimated player/user impact:
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Suggestion
+      options:
+        - Critical – blocking a client launch or revenue
+        - High – significant improvement or compliance requirement
+        - Medium – quality-of-life improvement
+        - Low – nice to have
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks
+      value: |
+        - What could go wrong if this feature misbehaves in production?
+        - Are there dependencies on payment processing, draw schedules, or third-party APIs?
+        - Could this break existing client configurations or player-facing behaviour?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: rollback
+    attributes:
+      label: Rollback Procedure
+      description: If the feature causes issues after release, how do we undo it?
+      options:
+        - label: Feature flag — disable without redeployment
+        - label: Revert the release/commit (no data migration involved)
+        - label: Database migration rollback required (describe steps)
+        - label: Manual data correction needed
+        - label: Config change revert (admin toggle or setting)
+        - label: No rollback possible — must fix forward
+
+  - type: textarea
+    id: rollback_notes
+    attributes:
+      label: Rollback notes
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Screenshots, mockups, Asana/Smartsheet links, or related issues.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Testing
+        Check each area only after it has been tested and passed.
+
+  - type: checkboxes
+    id: areas_tested
+    attributes:
+      label: Areas tested and passed
+      description: Check an area only after this change has been tested there and passed.
+      options:
+        - label: Player Portal / Public Website
+        - label: Admin / Back Office
+        - label: Payments (DD, card, recurring)
+        - label: Draw Engine / Results
+        - label: Communications (email, SMS, push)
+        - label: Reporting / Exports
+        - label: Integrations (payment gateway, third-party API)
+
+  - type: textarea
+    id: other_areas_tested
+    attributes:
+      label: Other areas tested
+      description: List any areas you have tested and passed that are not in the list above.
+    validations:
+      required: false

@@ -1,0 +1,200 @@
+name: Small Change Request
+description: Request a small change to content, configuration, behaviour, or presentation
+title: "[Small Change] "
+labels:
+  - enhancement
+body:
+  - type: input
+    id: requested_by
+    attributes:
+      label: Requested By
+      description: Internal team, client name, or both.
+      placeholder: Internal team / Client name / Both
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: system_area
+    attributes:
+      label: System Area
+      options:
+        - label: Player Portal / Public Website
+        - label: Admin / Back Office
+        - label: Other
+
+  - type: textarea
+    id: system_area_other
+    attributes:
+      label: Other system area
+      description: If you selected Other, specify the area.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: change_type
+    attributes:
+      label: Change Type
+      options:
+        - label: Text/content change
+        - label: Layout change
+        - label: Styling/branding change
+        - label: Configuration or setting
+        - label: Small behaviour change
+        - label: Accessibility improvement
+        - label: Other
+
+  - type: textarea
+    id: change_type_other
+    attributes:
+      label: Other change type
+      description: If you selected Other, specify the type of change.
+    validations:
+      required: false
+
+  - type: textarea
+    id: current_state
+    attributes:
+      label: Current State
+      description: Describe what exists today.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed Change
+      description: Describe the desired change.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: reason
+    attributes:
+      label: Reason for Change
+      description: Why is this being changed?
+      options:
+        - label: Consistency
+        - label: Accessibility
+        - label: Branding
+        - label: Client request
+        - label: Usability
+        - label: Bug fix
+        - label: Other
+
+  - type: textarea
+    id: reason_other
+    attributes:
+      label: Other reason
+      description: If you selected Other, explain why this is being changed.
+    validations:
+      required: false
+
+  - type: textarea
+    id: affected_pages
+    attributes:
+      label: Affected Pages or Journeys
+      description: List pages, forms, or journeys affected.
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add before and after screenshots or mockups.
+      value: |
+        ### Before
+
+        ### After
+    validations:
+      required: false
+
+  - type: dropdown
+    id: behaviour_impact
+    attributes:
+      label: Behaviour Impact
+      options:
+        - No functionality changes
+        - Functionality changes
+    validations:
+      required: true
+
+  - type: textarea
+    id: behaviour_impact_details
+    attributes:
+      label: Behaviour impact details
+      description: If functionality changes, describe what changes.
+    validations:
+      required: false
+
+  - type: textarea
+    id: client_impact
+    attributes:
+      label: Client Impact
+      description: Who will see this change?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: risk
+    attributes:
+      label: Risk Assessment
+      options:
+        - label: Text/CSS only (low risk)
+        - label: Frontend logic change
+        - label: JavaScript change
+        - label: Backend change
+
+  - type: textarea
+    id: risk_notes
+    attributes:
+      label: Risk notes
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Links, references, or related issues.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Testing
+        Check each area only after it has been tested and passed.
+
+  - type: checkboxes
+    id: areas_tested
+    attributes:
+      label: Areas tested and passed
+      description: Check an area only after this change has been tested there and passed.
+      options:
+        - label: Player Portal / Public Website
+        - label: Admin / Back Office
+        - label: Payments (DD, card, recurring)
+        - label: Draw Engine / Results
+        - label: Communications (email, SMS, push)
+        - label: Reporting / Exports
+        - label: Integrations (payment gateway, third-party API)
+
+  - type: textarea
+    id: other_areas_tested
+    attributes:
+      label: Other areas tested
+      description: List any areas you have tested and passed that are not in the list above.
+    validations:
+      required: false

@@ -1,0 +1,171 @@
+name: Data Export Request
+description: Request a new or modified data export for a client
+title: "[Export] "
+labels:
+  - enhancement
+  - export
+body:
+  - type: input
+    id: clients
+    attributes:
+      label: Client(s)
+      description: Lottery code/name, or "All" if platform-wide.
+      placeholder: Lottery code/name, or All
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: export_type
+    attributes:
+      label: Export Type
+      options:
+        - label: Member / Player data
+        - label: Payment transactions
+        - label: Direct Debit file
+        - label: Draw results / winners
+        - label: Communications log
+        - label: Attrition / Cancellations
+        - label: Claw-back / Failed payments
+        - label: Financial reconciliation
+        - label: Other
+
+  - type: textarea
+    id: export_type_other
+    attributes:
+      label: Other export type
+      description: If you selected Other, specify the export type.
+    validations:
+      required: false
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements Summary
+      description: Describe what the export should contain, including key fields, filters, and date ranges.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: output_format
+    attributes:
+      label: Output Format
+      options:
+        - label: CSV
+        - label: Excel (.xlsx)
+        - label: PDF
+        - label: API / automated feed
+        - label: Other
+
+  - type: textarea
+    id: output_format_other
+    attributes:
+      label: Other output format
+      description: If you selected Other, specify the format.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Frequency
+      options:
+        - One-off
+        - Daily
+        - Weekly
+        - Monthly
+        - On demand (manual trigger)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: delivery_method
+    attributes:
+      label: Delivery Method
+      options:
+        - label: Download from Admin portal
+        - label: Email to specified recipients
+        - label: SFTP / secure transfer
+        - label: Other
+
+  - type: textarea
+    id: delivery_method_other
+    attributes:
+      label: Other delivery method
+      description: If you selected Other, specify how the export should be delivered.
+    validations:
+      required: false
+
+  - type: textarea
+    id: deadline
+    attributes:
+      label: Deadline
+      description: Is there a hard deadline? If so, specify date and reason.
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks
+      value: |
+        - Does this export contain sensitive/PII data? What controls are needed?
+        - Could the export run impact system performance (large dataset, peak hours)?
+        - Are there GDPR or data-sharing agreement constraints?
+        - If automated, what happens if the export fails silently?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: rollback
+    attributes:
+      label: Rollback / Failure Procedure
+      description: If the export delivers incorrect data or fails, what is the recovery plan?
+      options:
+        - label: Re-run the export with corrected parameters
+        - label: Notify recipients to discard the file and re-issue
+        - label: Revoke access / delete the delivered file
+        - label: Pause automated schedule until investigated
+        - label: No action needed (one-off, low sensitivity)
+
+  - type: textarea
+    id: rollback_notes
+    attributes:
+      label: Rollback notes
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Asana task, Smartsheet link, or sample file showing desired layout.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Testing
+        Check each area only after it has been tested and passed.
+
+  - type: checkboxes
+    id: areas_tested
+    attributes:
+      label: Areas tested and passed
+      description: Check an area only after this change has been tested there and passed.
+      options:
+        - label: Player Portal / Public Website
+        - label: Admin / Back Office
+        - label: Payments (DD, card, recurring)
+        - label: Draw Engine / Results
+        - label: Communications (email, SMS, push)
+        - label: Reporting / Exports
+        - label: Integrations (payment gateway, third-party API)
+
+  - type: textarea
+    id: other_areas_tested
+    attributes:
+      label: Other areas tested
+      description: List any areas you have tested and passed that are not in the list above.
+    validations:
+      required: false
