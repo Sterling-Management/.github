@@ -25,10 +25,9 @@ body:
       label: Updated Dependencies
       description: List the updated packages and versions
       value: |
-        | Package | From | To | Reason |
-        |---|---|---|---|
-        | package-name | old-version | new-version | reason |
-      render: markdown
+        | Package | ecosystem | From | To | Reason |
+        |---|---|---|---|---|
+        | package-name | composer/npm | old-version | new-version | reason |
     validations:
       required: true
 
